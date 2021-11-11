@@ -1,0 +1,15 @@
+<div class="container">
+ <h1><%= @list.name %></h1>
+    <% if @list.bookmarks.empty?  %>
+    <% else  %>
+      <%= @list.bookmarks.each do |bookmark| %>
+      <p><%= bookmark.comment%></p> <%= link_to "Delete",bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    <% end %>
+  <p>
+  <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+  </p>
+  <p>
+  <%= link_to "Back to all Lists", lists_path %>
+  </p>
+</div>
